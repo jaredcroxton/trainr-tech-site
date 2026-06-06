@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../favicon.svg"/>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <title>When to Replace Strength-Machine Cables: A Gym Owner's Safety Guide</title>
 <meta name="description" content="Frayed cables and hidden fatigue cause serious gym injuries. How to inspect strength-machine cables, spot the warning signs, and know when to replace them."/>
 <link rel="canonical" href="https://trainr-tech-site.vercel.app/blog/when-to-replace-strength-cables.html"/>
@@ -57,7 +61,7 @@
   <p class="standfirst">A cable carries the full weight stack. When it fails, it fails suddenly and someone can get hurt. Here is how to catch it first.</p>
   <div class="art-meta"><span>Trainr Tech</span><span class="dot"></span><span>16 May 2026</span><span class="dot"></span><span>8 min read</span><span class="dot"></span><span>Brisbane · Sunshine Coast · Gold Coast</span></div>
 </div>
-<figure class="art-figure"><img src="../assets/img/svc-3.jpg" alt="Cable and pulley stack on a commercial strength machine being serviced"/></figure>
+<figure class="art-figure"><img loading="lazy" src="../assets/img/svc-3.jpg" alt="Cable and pulley stack on a commercial strength machine being serviced"/></figure>
 
 <div class="wrap layout">
   <div class="prose">
@@ -159,7 +163,7 @@
 </div></footer>
 
 <script>
-document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{const qa=b.parentElement,open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));if(!open)qa.classList.add('open');}));
+document.querySelectorAll('.qa button').forEach(b=>{b.setAttribute('aria-expanded','false');b.addEventListener('click',()=>{const qa=b.parentElement,open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');const z=x.querySelector('button');if(z)z.setAttribute('aria-expanded','false');});if(!open){qa.classList.add('open');b.setAttribute('aria-expanded','true');}});});
 </script>
 </body>
 </html>

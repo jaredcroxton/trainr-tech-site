@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../favicon.svg"/>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <title>Gym Equipment Safety & Compliance in Australia: What to Document</title>
 <meta name="description" content="Your duty of care as a gym operator, the maintenance records insurers expect, and how documented servicing keeps your Australian facility compliant and covered."/>
 <link rel="canonical" href="https://trainr-tech-site.vercel.app/blog/gym-equipment-safety-compliance-australia.html"/>
@@ -57,7 +61,7 @@
   <p class="standfirst">As an operator you carry a duty of care. When something goes wrong, your maintenance records are the difference between covered and exposed.</p>
   <div class="art-meta"><span>Trainr Tech</span><span class="dot"></span><span>11 April 2026</span><span class="dot"></span><span>9 min read</span><span class="dot"></span><span>Brisbane · Sunshine Coast · Gold Coast</span></div>
 </div>
-<figure class="art-figure"><img src="../assets/img/svc-6.jpg" alt="Digital equipment health and compliance report on a tablet"/></figure>
+<figure class="art-figure"><img loading="lazy" src="../assets/img/svc-6.jpg" alt="Digital equipment health and compliance report on a tablet"/></figure>
 
 <div class="wrap layout">
   <div class="prose">
@@ -155,7 +159,7 @@
 </div></footer>
 
 <script>
-document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{const qa=b.parentElement,open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));if(!open)qa.classList.add('open');}));
+document.querySelectorAll('.qa button').forEach(b=>{b.setAttribute('aria-expanded','false');b.addEventListener('click',()=>{const qa=b.parentElement,open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');const z=x.querySelector('button');if(z)z.setAttribute('aria-expanded','false');});if(!open){qa.classList.add('open');b.setAttribute('aria-expanded','true');}});});
 </script>
 </body>
 </html>

@@ -156,3 +156,10 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:54px 0 
   .prose,.prose p,.prose li,.prose h1,.prose h2,.prose h3{overflow-wrap:anywhere}
   .art-hero h1,.blog-hero h1{overflow-wrap:anywhere}
 }
+
+/* accessibility: keyboard focus + reduced motion */
+:focus-visible{outline:2px solid var(--violet-glow);outline-offset:3px;border-radius:5px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important}
+}

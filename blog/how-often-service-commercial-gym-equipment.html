@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="../favicon.svg"/>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <title>How Often Should You Service Commercial Gym Equipment? (2026 QLD Guide)</title>
 <meta name="description" content="A clear service schedule for commercial gym equipment: how often to service treadmills, strength machines and ergometers in 2026, and why it matters for QLD operators."/>
 <link rel="canonical" href="https://trainr-tech-site.vercel.app/blog/how-often-service-commercial-gym-equipment.html"/>
@@ -84,7 +88,7 @@
   </div>
 </div>
 
-<figure class="art-figure"><img src="../assets/img/svc-1.jpg" alt="Technician running diagnostics on a commercial treadmill"/></figure>
+<figure class="art-figure"><img loading="lazy" src="../assets/img/svc-1.jpg" alt="Technician running diagnostics on a commercial treadmill"/></figure>
 
 <div class="wrap layout">
   <div class="prose">
@@ -212,11 +216,14 @@
 </footer>
 
 <script>
-document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
-  const qa=b.parentElement,open=qa.classList.contains('open');
-  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
-  if(!open)qa.classList.add('open');
-}));
+document.querySelectorAll('.qa button').forEach(b=>{
+  b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',()=>{
+    const qa=b.parentElement,open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');const z=x.querySelector('button');if(z)z.setAttribute('aria-expanded','false');});
+    if(!open){qa.classList.add('open');b.setAttribute('aria-expanded','true');}
+  });
+});
 </script>
 </body>
 </html>

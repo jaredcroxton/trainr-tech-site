@@ -5,6 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Trainr Tech | Down to the Last Bolt</title>
 <meta name="description" content="Industrial-grade gym equipment servicing across Brisbane, Sunshine Coast and the Gold Coast. We know your machines down to the last bolt."/>
+<link rel="canonical" href="https://trainr-tech-site.vercel.app/"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#0b0a0f"/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="apple-touch-icon" href="favicon.svg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Trainr Tech"/>
+<meta property="og:title" content="Trainr Tech | Gym Equipment Servicing, Down to the Last Bolt"/>
+<meta property="og:description" content="Industrial-grade commercial gym equipment servicing across Brisbane, Sunshine Coast and the Gold Coast. Same-week response."/>
+<meta property="og:url" content="https://trainr-tech-site.vercel.app/"/>
+<meta property="og:image" content="https://trainr-tech-site.vercel.app/og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Trainr Tech | Gym Equipment Servicing"/>
+<meta name="twitter:description" content="Industrial-grade commercial gym equipment servicing across South East Queensland."/>
+<meta name="twitter:image" content="https://trainr-tech-site.vercel.app/og.jpg"/>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Trainr Tech",
+  "image":"https://trainr-tech-site.vercel.app/og.jpg",
+  "url":"https://trainr-tech-site.vercel.app/",
+  "telephone":"+61431525118",
+  "email":"info@trainrtech.com.au",
+  "description":"Commercial gym equipment servicing, repairs and preventative maintenance across South East Queensland.",
+  "areaServed":["Brisbane","Sunshine Coast","Gold Coast","Noosa","Gympie"],
+  "address":{"@type":"PostalAddress","addressRegion":"QLD","addressCountry":"AU"},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"18:00"}],
+  "priceRange":"$$",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"60"}
+}
+</script>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -235,6 +270,14 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
+/* accessibility: visible keyboard focus + reduced motion */
+:focus-visible{outline:2px solid var(--violet-glow);outline-offset:3px;border-radius:5px}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important}
+  .hero-video{display:none}.hero-poster{display:block}
+}
+
 /* contact link rows + quote panel */
 .contact-item{text-decoration:none}
 .contact-item:hover .val{color:var(--violet-glow)}
@@ -328,7 +371,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
 
 <!-- MARQUEE — trusted brands -->
 <div class="marquee">
-  <p class="marquee-label">Trusted by the gyms and brands we keep running</p>
+  <p class="marquee-label">Brands and equipment we service</p>
   <div class="track" id="mq">
     <img src="assets/logos/snap.svg" alt="Snap Fitness"/>
     <img src="assets/logos/jetts.svg" alt="Jetts"/>
@@ -350,12 +393,12 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
   </div>
   <div class="pin" id="pin">
     <div class="stage" id="stage">
-      <div class="frame"><img src="assets/img/svc-1.jpg" alt="Technician running preventative diagnostics on gym equipment"/></div>
-      <div class="frame"><img src="assets/img/svc-2.jpg" alt="Close-up repair of a commercial treadmill motor and belt"/></div>
-      <div class="frame"><img src="assets/img/svc-3.jpg" alt="Servicing the cable and pulley stack of a strength machine"/></div>
-      <div class="frame"><img src="assets/img/svc-4.jpg" alt="Concept2 ergometer flywheel and chain servicing"/></div>
-      <div class="frame"><img src="assets/img/svc-5.jpg" alt="Installing and levelling new commercial gym equipment"/></div>
-      <div class="frame"><img src="assets/img/svc-6.jpg" alt="Digital equipment audit and health report on a tablet"/></div>
+      <div class="frame"><img loading="lazy" src="assets/img/svc-1.jpg" alt="Technician running preventative diagnostics on gym equipment"/></div>
+      <div class="frame"><img loading="lazy" src="assets/img/svc-2.jpg" alt="Close-up repair of a commercial treadmill motor and belt"/></div>
+      <div class="frame"><img loading="lazy" src="assets/img/svc-3.jpg" alt="Servicing the cable and pulley stack of a strength machine"/></div>
+      <div class="frame"><img loading="lazy" src="assets/img/svc-4.jpg" alt="Concept2 ergometer flywheel and chain servicing"/></div>
+      <div class="frame"><img loading="lazy" src="assets/img/svc-5.jpg" alt="Installing and levelling new commercial gym equipment"/></div>
+      <div class="frame"><img loading="lazy" src="assets/img/svc-6.jpg" alt="Digital equipment audit and health report on a tablet"/></div>
       <div class="glow"></div>
       <div class="fade"></div>
     </div>
@@ -379,7 +422,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
   <!-- Mobile stacked fallback: guarantees every service photo shows on touch devices -->
   <div class="tmobile">
     <div class="tm-card rv">
-      <div class="tm-img"><img src="assets/img/svc-1.jpg" alt="Calibration and preventative diagnostics on a treadmill"/><span class="tm-num">01</span></div>
+      <div class="tm-img"><img loading="lazy" src="assets/img/svc-1.jpg" alt="Calibration and preventative diagnostics on a treadmill"/><span class="tm-num">01</span></div>
       <div class="tm-body">
         <div class="label">PREVENTATIVE MAINTENANCE</div>
         <h3>Catch the fault before it stops the floor.</h3>
@@ -388,7 +431,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       </div>
     </div>
     <div class="tm-card rv">
-      <div class="tm-img"><img src="assets/img/svc-2.jpg" alt="Repair of a commercial treadmill motor and belt"/><span class="tm-num">02</span></div>
+      <div class="tm-img"><img loading="lazy" src="assets/img/svc-2.jpg" alt="Repair of a commercial treadmill motor and belt"/><span class="tm-num">02</span></div>
       <div class="tm-body">
         <div class="label">EQUIPMENT REPAIRS &amp; SERVICING</div>
         <h3>Treadmills, bikes, anything that breaks.</h3>
@@ -397,7 +440,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       </div>
     </div>
     <div class="tm-card rv">
-      <div class="tm-img"><img src="assets/img/svc-3.jpg" alt="Servicing the cable and pulley stack of a strength machine"/><span class="tm-num">03</span></div>
+      <div class="tm-img"><img loading="lazy" src="assets/img/svc-3.jpg" alt="Servicing the cable and pulley stack of a strength machine"/><span class="tm-num">03</span></div>
       <div class="tm-body">
         <div class="label">STRENGTH EQUIPMENT</div>
         <h3>Cables, pulleys and pins, made safe.</h3>
@@ -406,7 +449,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       </div>
     </div>
     <div class="tm-card rv">
-      <div class="tm-img"><img src="assets/img/svc-4.jpg" alt="Servicing an air-resistance ergometer flywheel and chain"/><span class="tm-num">04</span></div>
+      <div class="tm-img"><img loading="lazy" src="assets/img/svc-4.jpg" alt="Servicing an air-resistance ergometer flywheel and chain"/><span class="tm-num">04</span></div>
       <div class="tm-body">
         <div class="label">CONCEPT2 SERVICING</div>
         <h3>Authorised ergometer care.</h3>
@@ -415,7 +458,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       </div>
     </div>
     <div class="tm-card rv">
-      <div class="tm-img"><img src="assets/img/svc-5.jpg" alt="Levelling a newly installed commercial machine"/><span class="tm-num">05</span></div>
+      <div class="tm-img"><img loading="lazy" src="assets/img/svc-5.jpg" alt="Levelling a newly installed commercial machine"/><span class="tm-num">05</span></div>
       <div class="tm-body">
         <div class="label">INSTALL &amp; RELOCATIONS</div>
         <h3>New fit-out or whole-gym move, certified.</h3>
@@ -424,7 +467,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       </div>
     </div>
     <div class="tm-card rv">
-      <div class="tm-img"><img src="assets/img/svc-6.jpg" alt="Digital equipment health report on a tablet"/><span class="tm-num">06</span></div>
+      <div class="tm-img"><img loading="lazy" src="assets/img/svc-6.jpg" alt="Digital equipment health report on a tablet"/><span class="tm-num">06</span></div>
       <div class="tm-body">
         <div class="label">AUDITS &amp; REPORTING</div>
         <h3>Every asset, documented and signed off.</h3>
@@ -578,9 +621,9 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
         <p class="blurb">Industrial-grade gym equipment servicing and preventative maintenance. We know your machines down to the last bolt.</p>
         <p class="blurb" style="margin-top:14px"><a href="tel:0431525118" style="color:var(--silver)">0431 525 118</a><br/><a href="mailto:info@trainrtech.com.au" style="color:var(--silver)">info@trainrtech.com.au</a></p>
       </div>
-      <div><h4>Company</h4><a href="request.html">Request a service</a><a href="blog/index.html">Blog</a><a href="#">About us</a></div>
+      <div><h4>Company</h4><a href="request.html">Request a service</a><a href="blog/index.html">Blog</a><a href="#teardown">Services</a></div>
       <div><h4>Services</h4><a href="#services">Maintenance plans</a><a href="#services">Repairs</a><a href="#services">Installation</a></div>
-      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of service</a></div>
+      <div><h4>Contact</h4><a href="tel:0431525118">0431 525 118</a><a href="mailto:info@trainrtech.com.au">Email us</a><a href="request.html">Book a service</a></div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Trainr Tech. Powered by PerformOS</span>
@@ -616,11 +659,14 @@ const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.ta
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
 /* ---- FAQ accordion ---- */
-document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
-  const qa=b.parentElement;const open=qa.classList.contains('open');
-  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('open'));
-  if(!open)qa.classList.add('open');
-}));
+document.querySelectorAll('.qa button').forEach(b=>{
+  b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',()=>{
+    const qa=b.parentElement;const open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');const btn=x.querySelector('button');if(btn)btn.setAttribute('aria-expanded','false');});
+    if(!open){qa.classList.add('open');b.setAttribute('aria-expanded','true');}
+  });
+});
 
 /* ---- TEARDOWN scroll-scrub ---- */
 const STEPS=[
@@ -645,8 +691,8 @@ function paint(i){
 }
 paint(0);
 frames[0].style.opacity=1;
-// Desktop only: the pinned crossfade scrub. Mobile uses the stacked .tmobile cards instead.
-if(window.gsap && matchMedia('(min-width:901px)').matches){
+// Desktop only, and not when the visitor prefers reduced motion. Mobile uses the stacked .tmobile cards instead.
+if(window.gsap && matchMedia('(min-width:901px)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
   gsap.registerPlugin(ScrollTrigger);
   const N=frames.length;
   ScrollTrigger.create({
