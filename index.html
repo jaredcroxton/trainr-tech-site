@@ -60,6 +60,7 @@ header.scrolled{background:rgba(11,10,15,.72);backdrop-filter:blur(16px) saturat
 /* hero */
 .hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:none}
 .hero .veil{position:absolute;inset:0;z-index:1;background:
   radial-gradient(120% 90% at 78% 38%,rgba(125,31,197,.18),transparent 55%),
   linear-gradient(180deg,rgba(11,10,15,.55) 0%,rgba(11,10,15,.15) 30%,rgba(11,10,15,.55) 68%,var(--carbon) 100%)}
@@ -91,6 +92,18 @@ header.scrolled{background:rgba(11,10,15,.72);backdrop-filter:blur(16px) saturat
 .tintro{padding:110px 0 70px;border-top:1px solid var(--line)}
 .tintro h2{font-size:clamp(30px,4.4vw,52px);margin-top:18px}
 .tintro p{margin-top:16px;color:var(--mute);font-size:18px;max-width:560px}
+/* mobile stacked teardown (hidden on desktop) */
+.tmobile{display:none}
+.tm-card{padding:0 20px 56px}
+.tm-img{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.tm-img img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.tm-num{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:22px;color:#fff;background:rgba(11,10,15,.55);backdrop-filter:blur(6px);border:1px solid rgba(166,77,255,.4);border-radius:8px;padding:4px 12px}
+.tm-body{padding-top:20px}
+.tm-body .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--blue-bright)}
+.tm-body h3{font-size:26px;margin-top:12px;line-height:1.08}
+.tm-body p{margin-top:12px;color:var(--mute);font-size:15px;line-height:1.6}
+.tm-body .part{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mute-2);letter-spacing:.05em}
+.tm-body .part b{color:var(--silver);font-weight:500}
 .pin{height:100vh;min-height:640px;position:relative;display:grid;grid-template-columns:1fr;align-items:center;overflow:hidden}
 .stage{position:absolute;inset:0;z-index:0}
 .stage .frame{position:absolute;inset:0;opacity:0;will-change:opacity}
@@ -221,7 +234,12 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
   .ticks{display:none}
   .hero-meta{display:none}
   .tcopy .panel{max-width:none}
-  .stage .fade{background:linear-gradient(0deg,var(--carbon) 6%,rgba(11,10,15,.45) 50%,var(--carbon) 100%)}
+  /* mobile: drop the fragile pinned scrub, show the stacked photo cards, swap video for static image */
+  .pin{display:none}
+  .tintro{padding:90px 0 10px}
+  .tmobile{display:block}
+  .hero-video{display:none}
+  .hero-poster{display:block}
 }
 </style>
 </head>
@@ -243,7 +261,8 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline poster="assets/img/t1.jpg">
+  <img class="hero-poster" src="assets/img/t1.jpg" alt="Commercial treadmill in a dark gym"/>
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/img/t1.jpg">
     <source src="assets/video/teardown.mp4" type="video/mp4"/>
   </video>
   <div class="veil"></div>
@@ -306,6 +325,64 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
     <div class="ticks" id="ticks">
       <div class="tick on"></div><div class="tick"></div><div class="tick"></div>
       <div class="tick"></div><div class="tick"></div><div class="tick"></div>
+    </div>
+  </div>
+
+  <!-- Mobile stacked fallback: guarantees every service photo shows on touch devices -->
+  <div class="tmobile">
+    <div class="tm-card rv">
+      <div class="tm-img"><img src="assets/img/svc-1.jpg" alt="Calibration and preventative diagnostics on a treadmill"/><span class="tm-num">01</span></div>
+      <div class="tm-body">
+        <div class="label">PREVENTATIVE MAINTENANCE</div>
+        <h3>Catch the fault before it stops the floor.</h3>
+        <p>Scheduled diagnostics, lubrication and calibration on every machine. We find wear before it becomes downtime and keep your facility compliant.</p>
+        <div class="part">PLAN // <b>QUARTERLY</b> · safety + compliance</div>
+      </div>
+    </div>
+    <div class="tm-card rv">
+      <div class="tm-img"><img src="assets/img/svc-2.jpg" alt="Repair of a commercial treadmill motor and belt"/><span class="tm-num">02</span></div>
+      <div class="tm-body">
+        <div class="label">EQUIPMENT REPAIRS &amp; SERVICING</div>
+        <h3>Treadmills, bikes, anything that breaks.</h3>
+        <p>Belts, motors, decks and control boards. Our trucks carry the common parts, so most faults are fixed on the first visit across every major brand.</p>
+        <div class="part">FIX // <b>FIRST-VISIT</b> · all brands</div>
+      </div>
+    </div>
+    <div class="tm-card rv">
+      <div class="tm-img"><img src="assets/img/svc-3.jpg" alt="Servicing the cable and pulley stack of a strength machine"/><span class="tm-num">03</span></div>
+      <div class="tm-body">
+        <div class="label">STRENGTH EQUIPMENT</div>
+        <h3>Cables, pulleys and pins, made safe.</h3>
+        <p>A frayed cable is an injury waiting to happen. We replace, re-tension and re-upholster your full strength range to manufacturer spec.</p>
+        <div class="part">RIG // <b>CABLE-09</b> · pulley + pad</div>
+      </div>
+    </div>
+    <div class="tm-card rv">
+      <div class="tm-img"><img src="assets/img/svc-4.jpg" alt="Servicing an air-resistance ergometer flywheel and chain"/><span class="tm-num">04</span></div>
+      <div class="tm-body">
+        <div class="label">CONCEPT2 SERVICING</div>
+        <h3>Authorised ergometer care.</h3>
+        <p>RowErgs, SkiErgs and BikeErgs serviced by authorised technicians. Flywheel, chain and damper returned to factory feel.</p>
+        <div class="part">ERG // <b>FLY-02</b> · chain + damper</div>
+      </div>
+    </div>
+    <div class="tm-card rv">
+      <div class="tm-img"><img src="assets/img/svc-5.jpg" alt="Levelling a newly installed commercial machine"/><span class="tm-num">05</span></div>
+      <div class="tm-body">
+        <div class="label">INSTALL &amp; RELOCATIONS</div>
+        <h3>New fit-out or whole-gym move, certified.</h3>
+        <p>From a single install to relocating an entire facility. We transport, assemble, level and recalibrate with zero downtime.</p>
+        <div class="part">MOVE // <b>ZERO-DT</b> · level + calibrate</div>
+      </div>
+    </div>
+    <div class="tm-card rv">
+      <div class="tm-img"><img src="assets/img/svc-6.jpg" alt="Digital equipment health report on a tablet"/><span class="tm-num">06</span></div>
+      <div class="tm-body">
+        <div class="label">AUDITS &amp; REPORTING</div>
+        <h3>Every asset, documented and signed off.</h3>
+        <p>Detailed digital health reports for insurance, valuation and asset management. Know the condition of your whole floor at a glance.</p>
+        <div class="part">DATA // <b>CERTIFIED ✓</b> · full report</div>
+      </div>
     </div>
   </div>
 </div>
@@ -504,26 +581,27 @@ function paint(i){
   ticks.forEach((t,k)=>t.classList.toggle('on',k===i));
 }
 paint(0);
-gsap.registerPlugin(ScrollTrigger);
-const N=frames.length;
-// crossfade frames across scroll progress
-ScrollTrigger.create({
-  trigger:"#pin",start:"top top",end:"+="+(N*60)+"%",pin:true,scrub:.6,
-  onUpdate:self=>{
-    const p=self.progress*(N-1);      // 0 .. N-1
-    const idx=Math.min(N-1,Math.floor(p+0.5));
-    paint(idx);
-    frames.forEach((f,k)=>{
-      let o=1-Math.min(1,Math.abs(p-k));   // peak at its own index
-      f.style.opacity=o.toFixed(3);
-    });
-  }
-});
-// ensure first frame visible before scroll
 frames[0].style.opacity=1;
-// recompute pin start/end once images load and on resize, so the pin never desyncs
-addEventListener('load',()=>ScrollTrigger.refresh());
-let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>ScrollTrigger.refresh(),200)});
+// Desktop only: the pinned crossfade scrub. Mobile uses the stacked .tmobile cards instead.
+if(window.gsap && matchMedia('(min-width:901px)').matches){
+  gsap.registerPlugin(ScrollTrigger);
+  const N=frames.length;
+  ScrollTrigger.create({
+    trigger:"#pin",start:"top top",end:"+="+(N*60)+"%",pin:true,scrub:.6,
+    onUpdate:self=>{
+      const p=self.progress*(N-1);      // 0 .. N-1
+      const idx=Math.min(N-1,Math.floor(p+0.5));
+      paint(idx);
+      frames.forEach((f,k)=>{
+        let o=1-Math.min(1,Math.abs(p-k));   // peak at its own index
+        f.style.opacity=o.toFixed(3);
+      });
+    }
+  });
+  // recompute pin start/end once images load and on resize, so the pin never desyncs
+  addEventListener('load',()=>ScrollTrigger.refresh());
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>ScrollTrigger.refresh(),200)});
+}
 </script>
 </body>
 </html>
