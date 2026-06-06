@@ -188,8 +188,9 @@ footer{border-top:1px solid var(--line);padding:36px 0;color:var(--mute-2);font-
           <option>Other</option>
         </select>
       </div>
-      <div class="field"><label>Describe the issue</label><textarea name="Issue" rows="4" placeholder="What is the machine, what is it doing, and what have you tried?"></textarea>
-        <div class="hint">Have a photo of the problem area? Attach it to the email that opens when you submit.</div>
+      <div class="field"><label>Describe the issue</label><textarea name="Issue" rows="4" placeholder="What is the machine, what is it doing, and what have you tried?"></textarea></div>
+      <div class="field"><label>Photo of the machine / problem area</label><input type="file" name="attachment" accept="image/*"/>
+        <div class="hint">Optional. A clear photo of the fault speeds up diagnosis.</div>
       </div>
 
       <div class="fsec">Priority</div>
@@ -243,23 +244,43 @@ footer{border-top:1px solid var(--line);padding:36px 0;color:var(--mute-2);font-
 </footer>
 
 <script>
-document.getElementById('reqForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const form=e.target;
-  if(!form.reportValidity())return;
-  const data=new FormData(form);
-  let lines=['New equipment service request from the Trainr Tech website.',''];
-  for(const [k,v] of data.entries()){ if(v && String(v).trim()) lines.push(k+': '+v); }
-  const service=data.get('Service required')||'Service';
-  const name=((data.get('First name')||'')+' '+(data.get('Last name')||'')).trim();
-  const subject='Service request: '+service+(name?' — '+name:'');
-  const body=lines.join('\n');
-  const mailto='mailto:info@trainrtech.com.au?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-  window.location.href=mailto;
+// Web3Forms access key. Get one free at https://web3forms.com (enter info@trainrtech.com.au),
+// then paste the key below. Until it is set, the form safely falls back to opening an email.
+const WEB3FORMS_KEY = "REPLACE_WITH_WEB3FORMS_KEY";
+
+const form=document.getElementById('reqForm');
+function showSuccess(){
   document.getElementById('formBody').style.display='none';
   document.querySelector('.fhead').style.display='none';
   document.getElementById('okState').classList.add('show');
   window.scrollTo({top:0,behavior:'smooth'});
+}
+function mailtoFallback(data){
+  let lines=['New equipment service request from the Trainr Tech website.',''];
+  for(const [k,v] of data.entries()){ if(k!=='attachment' && v && String(v).trim()) lines.push(k+': '+v); }
+  const service=data.get('Service required')||'Service';
+  const name=((data.get('First name')||'')+' '+(data.get('Last name')||'')).trim();
+  const subject='Service request: '+service+(name?' — '+name:'');
+  window.location.href='mailto:info@trainrtech.com.au?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
+  showSuccess();
+}
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  if(!form.reportValidity())return;
+  const data=new FormData(form);
+  const keySet = WEB3FORMS_KEY && !WEB3FORMS_KEY.startsWith('REPLACE_');
+  if(!keySet){ mailtoFallback(data); return; }
+  // Server-side capture via Web3Forms (emails info@trainrtech.com.au, supports the photo attachment)
+  const btn=form.querySelector('.submit'); const orig=btn.textContent; btn.textContent='Sending…'; btn.disabled=true;
+  data.append('access_key', WEB3FORMS_KEY);
+  data.append('subject', 'New service request: '+(data.get('Service required')||'')+' — '+((data.get('First name')||'')+' '+(data.get('Last name')||'')).trim());
+  data.append('from_name', 'Trainr Tech website');
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+    const out=await res.json();
+    if(out.success){ showSuccess(); } else { mailtoFallback(data); }
+  }catch(err){ mailtoFallback(data); }
+  finally{ btn.textContent=orig; btn.disabled=false; }
 });
 </script>
 </body>
