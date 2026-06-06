@@ -5,8 +5,8 @@
   --blue:#3b6cdd;--blue-bright:#5e8bff;--silver:#e5e2e8;--mute:#9d96ad;--mute-2:#6d6680;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--carbon);color:var(--silver);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{background:var(--carbon);color:var(--silver);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden;max-width:100%}
 .mono{font-family:'JetBrains Mono',monospace}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
@@ -149,6 +149,10 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:54px 0 
   .aside{position:static;margin-top:50px}
   .rel-grid{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
-  .prose{font-size:16px}
-  .prose table{display:block;overflow-x:auto;white-space:nowrap}
+  .prose{font-size:16px;max-width:100%}
+  /* tables WRAP to fit any phone width (no nowrap horizontal overflow) */
+  .prose table{table-layout:fixed;width:100%;font-size:12.5px;white-space:normal}
+  .prose th,.prose td{padding:10px 9px;word-break:break-word;overflow-wrap:anywhere}
+  .prose,.prose p,.prose li,.prose h1,.prose h2,.prose h3{overflow-wrap:anywhere}
+  .art-hero h1,.blog-hero h1{overflow-wrap:anywhere}
 }
