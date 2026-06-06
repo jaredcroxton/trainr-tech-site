@@ -275,6 +275,12 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
   .tmobile{display:block}
   /* 16:9 video on tall phones: shift framing right so the treadmill stays in view */
   .hero-video,.hero-poster{object-position:74% center}
+  /* mobile hero: use small-viewport height (iOS 100vh hides bottom content), clear the call button, hide scroll cue */
+  .hero{height:auto;min-height:100vh;min-height:100svh;align-items:flex-end}
+  .hero-inner{padding-bottom:132px}
+  .hero h1{font-size:clamp(40px,11vw,58px)}
+  .hero .cta{margin-top:22px}
+  .scrollcue{display:none}
 }
 </style>
 </head>
