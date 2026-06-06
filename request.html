@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Request a Service | Trainr Tech — Gym Equipment Repair (Brisbane, Sunshine Coast, Gold Coast)</title>
+<meta name="description" content="Request a gym equipment service or repair from Trainr Tech. Tell us the machine, the fault and the urgency and a technician will respond same-week across South East Queensland."/>
+<link rel="canonical" href="https://trainr-tech-site.vercel.app/request.html"/>
+<meta property="og:title" content="Request a Service | Trainr Tech"/>
+<meta property="og:description" content="Tell us the machine, the fault and the urgency. Same-week response across South East QLD."/>
+<meta property="og:url" content="https://trainr-tech-site.vercel.app/request.html"/>
+<meta property="og:image" content="https://trainr-tech-site.vercel.app/assets/img/svc-2.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--carbon:#0b0a0f;--carbon-2:#100e16;--line:#2a2738;--violet:#7d1fc5;--violet-bright:#a64dff;--violet-glow:#b46bff;--blue:#3b6cdd;--blue-bright:#5e8bff;--silver:#e5e2e8;--mute:#9d96ad;--mute-2:#6d6680;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--carbon);color:var(--silver);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+.mono{font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--violet-glow)}
+.eyebrow-line{display:inline-flex;align-items:center;gap:14px}
+.eyebrow-line::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--violet-glow))}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.04;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header{position:sticky;top:0;z-index:100;background:rgba(11,10,15,.78);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:18px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--violet-bright);box-shadow:0 0 12px var(--violet-glow)}
+.btn{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;padding:11px 20px;border-radius:6px;cursor:pointer;border:none;transition:transform .18s,box-shadow .3s,background .3s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 10px 30px -12px rgba(125,31,197,.8)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.03);color:var(--silver);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--violet)}
+
+.hero{padding:64px 0 40px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 82% 0%,rgba(125,31,197,.16),transparent 60%);pointer-events:none}
+.hero h1{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(32px,5vw,56px);letter-spacing:-.02em;line-height:1.05;margin-top:20px}
+.hero .lead{margin-top:18px;color:var(--mute);font-size:19px;max-width:620px}
+
+.layout{display:grid;grid-template-columns:330px 1fr;gap:48px;padding:20px 0 90px;align-items:start}
+.aside{position:sticky;top:96px;display:flex;flex-direction:column;gap:18px}
+.aside .box{border:1px solid var(--line);border-radius:14px;padding:24px;background:rgba(255,255,255,.02)}
+.aside h3{font-family:'JetBrains Mono',monospace;font-size:15px;margin-bottom:14px}
+.aside .row{display:flex;gap:13px;align-items:flex-start;margin-bottom:16px}
+.aside .row:last-child{margin-bottom:0}
+.aside .ring{width:42px;height:42px;border-radius:50%;flex-shrink:0;background:rgba(125,31,197,.1);border:1px solid rgba(166,77,255,.25);display:flex;align-items:center;justify-content:center}
+.aside .ring svg{width:18px;height:18px;stroke:var(--violet-glow);fill:none}
+.aside .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-2)}
+.aside .val{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--silver);margin-top:2px}
+.aside .val:hover{color:var(--violet-glow)}
+.trust{list-style:none;display:flex;flex-direction:column;gap:11px}
+.trust li{position:relative;padding-left:24px;color:var(--mute);font-size:14px}
+.trust li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:7px;border-left:2px solid var(--violet-glow);border-bottom:2px solid var(--violet-glow);transform:rotate(-45deg)}
+
+form{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));overflow:hidden}
+.fhead{padding:20px 30px;background:linear-gradient(90deg,var(--violet),#5a1796);font-family:'JetBrains Mono',monospace;font-weight:600;color:#fff;display:flex;align-items:center;gap:10px;font-size:16px}
+.fhead .dot{width:8px;height:8px;border-radius:50%;background:#fff}
+.fbody{padding:30px}
+.fsec{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--violet-glow);margin:8px 0 16px;padding-top:8px}
+.fsec:first-child{padding-top:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:18px}
+.field label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:7px}
+.field label .req{color:var(--violet-glow)}
+.field input,.field select,.field textarea{width:100%;background:var(--carbon);border:1px solid var(--line);border-radius:8px;padding:13px 14px;color:var(--silver);font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .25s,box-shadow .25s}
+.field input::placeholder,.field textarea::placeholder{color:var(--mute-2)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,108,221,.18)}
+.field select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23b46bff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.field .hint{font-size:12px;color:var(--mute-2);margin-top:6px}
+.submit{width:100%;justify-content:center;padding:16px;font-size:15px;margin-top:6px}
+.note{font-size:13px;color:var(--mute-2);text-align:center;margin-top:14px}
+.ok{display:none;text-align:center;padding:40px 30px}
+.ok.show{display:block}
+.ok .tick{width:64px;height:64px;border-radius:50%;background:rgba(125,31,197,.14);border:1px solid rgba(166,77,255,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.ok .tick svg{width:30px;height:30px;stroke:var(--violet-glow);fill:none;stroke-width:2.4}
+.ok h2{font-family:'JetBrains Mono',monospace;font-size:24px;margin-bottom:12px}
+.ok p{color:var(--mute);max-width:380px;margin:0 auto 8px}
+
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--mute-2);font-size:13px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+
+@media(max-width:900px){
+  .wrap{padding:0 20px}
+  .layout{grid-template-columns:1fr;gap:24px}
+  .aside{position:static;order:2}
+  .grid2{grid-template-columns:1fr}
+  .fbody{padding:22px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo"><span class="dot"></span>TRAINR<span style="color:var(--mute-2)">TECH</span></a>
+    <a href="tel:0431525118" class="btn btn-ghost">Call 0431 525 118</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow-line kicker">Equipment service request</span>
+    <h1>Request a service.</h1>
+    <p class="lead">Tell us the machine, the fault and how urgent it is. A technician reviews every request and responds the same week across Brisbane, the Sunshine Coast and the Gold Coast.</p>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <aside class="aside">
+    <div class="box">
+      <h3>Talk to us now</h3>
+      <a class="row" href="tel:0431525118">
+        <div class="ring"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></div>
+        <div><div class="lab">Direct line</div><div class="val">0431 525 118</div></div>
+      </a>
+      <a class="row" href="mailto:info@trainrtech.com.au">
+        <div class="ring"><svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <div><div class="lab">Email</div><div class="val">info@trainrtech.com.au</div></div>
+      </a>
+    </div>
+    <div class="box">
+      <h3>Why operators call us</h3>
+      <ul class="trust">
+        <li>Same-week response, 7 days</li>
+        <li>Parts on the truck, most faults fixed first visit</li>
+        <li>Documented health report every visit</li>
+        <li>Brisbane · Sunshine Coast · Gold Coast</li>
+      </ul>
+    </div>
+  </aside>
+
+  <form id="reqForm">
+    <div class="fhead"><span class="dot"></span>Equipment service request</div>
+    <div class="fbody" id="formBody">
+      <div class="fsec">Your details</div>
+      <div class="grid2">
+        <div class="field"><label>First name <span class="req">*</span></label><input name="First name" type="text" placeholder="Jordan" required/></div>
+        <div class="field"><label>Last name <span class="req">*</span></label><input name="Last name" type="text" placeholder="Blake" required/></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>Email <span class="req">*</span></label><input name="Email" type="email" placeholder="you@facility.com.au" required/></div>
+        <div class="field"><label>Phone <span class="req">*</span></label><input name="Phone" type="tel" placeholder="0400 000 000" required/></div>
+      </div>
+      <div class="field"><label>Facility name</label><input name="Facility name" type="text" placeholder="e.g. Anytime Fitness Maroochydore"/></div>
+
+      <div class="fsec">About the facility</div>
+      <div class="grid2">
+        <div class="field"><label>Type of facility <span class="req">*</span></label>
+          <select name="Facility type" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Commercial Gym</option><option>Surf Club</option><option>Hotel / Resort Gym</option>
+            <option>Apartment / Strata Gym</option><option>PT Studio / CrossFit</option><option>Home Gym</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Location <span class="req">*</span></label>
+          <select name="Location" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Brisbane</option><option>Sunshine Coast</option><option>Gold Coast</option>
+            <option>Noosa</option><option>Gympie</option><option>Other SEQ</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fsec">What you need</div>
+      <div class="field"><label>Service required <span class="req">*</span></label>
+        <select name="Service required" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Cable Replacement</option>
+          <option>Equipment Repair</option>
+          <option>Treadmill Repair &amp; Servicing</option>
+          <option>Concept2 Service</option>
+          <option>Preventative Maintenance</option>
+          <option>Fault Finding</option>
+          <option>Spare Parts Installation</option>
+          <option>Machine Reconditioning</option>
+          <option>Equipment Assembly / Install</option>
+          <option>Gym Relocation</option>
+          <option>Audit &amp; Reporting</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Describe the issue</label><textarea name="Issue" rows="4" placeholder="What is the machine, what is it doing, and what have you tried?"></textarea>
+        <div class="hint">Have a photo of the problem area? Attach it to the email that opens when you submit.</div>
+      </div>
+
+      <div class="fsec">Priority</div>
+      <div class="grid2">
+        <div class="field"><label>How long has the issue been present? <span class="req">*</span></label>
+          <select name="Issue duration" required>
+            <option value="" disabled selected>Select one</option>
+            <option>1-3 days</option><option>1-2 weeks</option><option>Over 2 weeks</option><option>Months</option>
+          </select>
+        </div>
+        <div class="field"><label>Machine status <span class="req">*</span></label>
+          <select name="Machine status" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Still usable</option><option>Unsafe to use</option><option>Completely out of order</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label>How urgent is this? <span class="req">*</span></label>
+          <select name="Urgency" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Emergency repair</option><option>High priority</option><option>Standard booking</option>
+          </select>
+        </div>
+        <div class="field"><label>Interested in ongoing maintenance? <span class="req">*</span></label>
+          <select name="Ongoing maintenance" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Yes, send info</option><option>Maybe later</option><option>No thanks</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary submit">Submit request →</button>
+      <p class="note">Submitting opens your email app with the details ready to send to info@trainrtech.com.au. Prefer to talk? Call <a href="tel:0431525118" style="color:var(--violet-glow)">0431 525 118</a>.</p>
+    </div>
+
+    <div class="ok" id="okState">
+      <div class="tick"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h2>Your request is ready to send</h2>
+      <p>We have opened your email app with all the details filled in. Just hit send and a technician will be in touch the same week.</p>
+      <p>Email did not open? Send the details to <a href="mailto:info@trainrtech.com.au" style="color:var(--violet-glow)">info@trainrtech.com.au</a> or call <a href="tel:0431525118" style="color:var(--violet-glow)">0431 525 118</a>.</p>
+    </div>
+  </form>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Trainr Tech. All rights reserved.</span>
+    <span class="mono">BRISBANE / SUNSHINE COAST / GOLD COAST</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('reqForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const form=e.target;
+  if(!form.reportValidity())return;
+  const data=new FormData(form);
+  let lines=['New equipment service request from the Trainr Tech website.',''];
+  for(const [k,v] of data.entries()){ if(v && String(v).trim()) lines.push(k+': '+v); }
+  const service=data.get('Service required')||'Service';
+  const name=((data.get('First name')||'')+' '+(data.get('Last name')||'')).trim();
+  const subject='Service request: '+service+(name?' — '+name:'');
+  const body=lines.join('\n');
+  const mailto='mailto:info@trainrtech.com.au?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  window.location.href=mailto;
+  document.getElementById('formBody').style.display='none';
+  document.querySelector('.fhead').style.display='none';
+  document.getElementById('okState').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>

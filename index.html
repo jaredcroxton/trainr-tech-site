@@ -81,11 +81,16 @@ header.scrolled{background:rgba(11,10,15,.72);backdrop-filter:blur(16px) saturat
 @keyframes drop{0%{top:-50%}100%{top:100%}}
 .scrollcue span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;color:var(--mute-2)}
 
-/* marquee */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;background:var(--carbon-2)}
-.marquee .track{display:flex;gap:60px;width:max-content;animation:scroll 26s linear infinite;align-items:center}
-.marquee span{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--mute-2);white-space:nowrap;letter-spacing:.02em}
-.marquee .sep{color:var(--violet);opacity:.6}
+/* marquee — partner logo cloud */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0 34px;overflow:hidden;background:var(--carbon-2);position:relative}
+.marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--carbon-2),transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,var(--carbon-2),transparent)}
+.marquee-label{text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute-2);margin-bottom:22px}
+.marquee .track{display:flex;gap:72px;width:max-content;animation:scroll 32s linear infinite;align-items:center}
+.marquee:hover .track{animation-play-state:paused}
+.marquee .track img{height:30px;width:auto;flex-shrink:0;opacity:.7;filter:grayscale(1) brightness(0) invert(.82);transition:opacity .35s,filter .35s,transform .35s}
+.marquee .track img:hover{opacity:1;filter:none;transform:scale(1.08)}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
 /* teardown scrub */
@@ -140,24 +145,34 @@ section.block{padding:120px 0;position:relative}
 .stat .big{font-family:'JetBrains Mono',monospace;font-size:clamp(34px,4vw,52px);font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,var(--silver),var(--violet-glow));-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat .cap{margin-top:10px;color:var(--mute);font-size:14px}
 
-/* bento */
+/* services — uniform tidy grid */
 .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));border:1px solid var(--line);border-radius:14px;padding:30px;position:relative;overflow:hidden;transition:border-color .35s,transform .35s}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 80% 0%,rgba(125,31,197,.1),transparent 70%);opacity:0;transition:opacity .4s}
-.card:hover{border-color:rgba(166,77,255,.5);transform:translateY(-4px)}
+.card{display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008));border:1px solid var(--line);border-radius:14px;padding:30px;position:relative;overflow:hidden;min-height:240px;transition:border-color .35s,transform .35s,box-shadow .35s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 80% 0%,rgba(125,31,197,.12),transparent 70%);opacity:0;transition:opacity .4s}
+.card::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--violet-bright),var(--blue-bright));transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.card:hover{border-color:rgba(166,77,255,.5);transform:translateY(-6px);box-shadow:0 24px 50px -24px rgba(125,31,197,.55)}
 .card:hover::before{opacity:1}
-.card .ic{width:46px;height:46px;border-radius:10px;background:rgba(125,31,197,.12);border:1px solid rgba(166,77,255,.25);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.card .ic svg{width:22px;height:22px;stroke:var(--violet-glow)}
-.card h3{font-size:21px}
-.card p{margin-top:12px;color:var(--mute);font-size:15px;line-height:1.6}
-.card.span2{grid-column:span 2}
-.chips{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.card:hover::after{width:100%}
+.card .ic{width:48px;height:48px;border-radius:11px;background:rgba(125,31,197,.12);border:1px solid rgba(166,77,255,.25);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:transform .4s cubic-bezier(.2,.7,.2,1),background .35s}
+.card:hover .ic{transform:rotate(-8deg) scale(1.1);background:rgba(125,31,197,.22)}
+.card .ic svg{width:23px;height:23px;stroke:var(--violet-glow);transition:stroke .35s}
+.card h3{font-size:21px;position:relative}
+.card p{margin-top:12px;color:var(--mute);font-size:15px;line-height:1.6;position:relative}
+.chips{margin-top:auto;padding-top:18px;display:flex;gap:8px;flex-wrap:wrap;position:relative}
 .chip{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.04em;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--mute)}
-.card.feature{background:linear-gradient(135deg,var(--violet),#4d1480);border:1px solid rgba(166,77,255,.4)}
+.card.feature{background:linear-gradient(140deg,var(--violet),#4d1480);border:1px solid rgba(166,77,255,.4)}
 .card.feature h3,.card.feature p{color:#fff}
 .card.feature p{opacity:.92}
-.card.feature .ic{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+.card.feature .ic{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.32)}
 .card.feature .ic svg{stroke:#fff}
+.card.feature:hover{box-shadow:0 24px 50px -22px rgba(125,31,197,.8)}
+/* staggered reveal across the grid */
+.bento .rv:nth-child(1){transition-delay:0s}
+.bento .rv:nth-child(2){transition-delay:.07s}
+.bento .rv:nth-child(3){transition-delay:.14s}
+.bento .rv:nth-child(4){transition-delay:.21s}
+.bento .rv:nth-child(5){transition-delay:.28s}
+.bento .rv:nth-child(6){transition-delay:.35s}
 
 /* split / quote */
 .split{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:start}
@@ -220,6 +235,25 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
 .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
+/* contact link rows + quote panel */
+.contact-item{text-decoration:none}
+.contact-item:hover .val{color:var(--violet-glow)}
+.contact-item .val{transition:color .25s}
+.quote-panel{display:flex;flex-direction:column;gap:14px}
+.quote-list{list-style:none;margin:4px 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.quote-list li{position:relative;padding-left:26px;color:var(--mute);font-size:15px}
+.quote-list li::before{content:"";position:absolute;left:0;top:7px;width:13px;height:8px;border-left:2px solid var(--violet-glow);border-bottom:2px solid var(--violet-glow);transform:rotate(-45deg)}
+
+/* mobile click-to-call floating button */
+.callfab{display:none}
+@media(max-width:900px){
+  .callfab{display:flex;position:fixed;left:16px;right:16px;bottom:16px;z-index:200;align-items:center;justify-content:center;gap:10px;
+    padding:16px;border-radius:14px;background:var(--violet);color:#fff;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15px;
+    box-shadow:0 14px 36px -10px rgba(125,31,197,.9);border:1px solid rgba(166,77,255,.5)}
+  .callfab svg{width:18px;height:18px;stroke:#fff;fill:none}
+  body{padding-bottom:84px}
+}
+
 @media(max-width:900px){
   .wrap{padding:0 20px}
   .nav-links{display:none}
@@ -244,6 +278,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
 </head>
 <body>
 <div class="grain"></div>
+<a class="callfab" href="tel:0431525118"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>Call 0431 525 118</a>
 
 <header id="hdr">
   <div class="wrap nav">
@@ -255,14 +290,14 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       <a href="blog/index.html">Blog</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Service</button>
+    <a class="btn btn-primary" href="request.html">Request a Service</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-poster" src="assets/img/t1.jpg" alt="Commercial treadmill in a dark gym"/>
-  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/img/t1.jpg">
+  <img class="hero-poster" src="assets/img/hero-poster.jpg" alt="Commercial treadmill in a dark gym"/>
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/img/hero-poster.jpg">
     <source src="assets/video/teardown.mp4" type="video/mp4"/>
   </video>
   <div class="veil"></div>
@@ -276,7 +311,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       <h1 style="margin-top:22px">Down to the<br/><span class="gr">last bolt.</span></h1>
       <p class="sub">We strip, diagnose and rebuild commercial gym equipment with the precision of the engineers who built it. Brisbane, Sunshine Coast and the Gold Coast, on call.</p>
       <div class="cta">
-        <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Service →</button>
+        <a class="btn btn-primary" href="request.html">Request a Service →</a>
         <button class="btn btn-ghost" onclick="document.getElementById('teardown').scrollIntoView({behavior:'smooth'})">See the teardown</button>
       </div>
     </div>
@@ -284,10 +319,16 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
   <div class="scrollcue"><span>SCROLL</span><div class="bar"></div></div>
 </section>
 
-<!-- MARQUEE -->
+<!-- MARQUEE — trusted brands -->
 <div class="marquee">
+  <p class="marquee-label">Trusted by the gyms and brands we keep running</p>
   <div class="track" id="mq">
-    <span>JETTS</span><span class="sep">/</span><span>ANYTIME FITNESS</span><span class="sep">/</span><span>ROGUE</span><span class="sep">/</span><span>FITSTOP</span><span class="sep">/</span><span>CONCEPT2</span><span class="sep">/</span><span>REBALANCE</span><span class="sep">/</span><span>TECHNOGYM</span><span class="sep">/</span>
+    <img src="assets/logos/snap.svg" alt="Snap Fitness"/>
+    <img src="assets/logos/jetts.svg" alt="Jetts"/>
+    <img src="assets/logos/rebel.svg" alt="Rebel"/>
+    <img src="assets/logos/ifit.svg" alt="iFIT"/>
+    <img src="assets/logos/fernwood.svg" alt="Fernwood Fitness"/>
+    <img src="assets/logos/usc.svg" alt="University of the Sunshine Coast"/>
   </div>
 </div>
 
@@ -406,11 +447,11 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       <p>From the deck under your feet to the board behind the screen, we service the whole floor with manufacturer-grade precision.</p>
     </div>
     <div class="bento">
-      <div class="card span2 rv">
+      <div class="card rv">
         <div class="ic"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.6 1.6 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.6 1.6 0 00-2.7 1.1V21a2 2 0 11-4 0v-.1A1.6 1.6 0 005 19.4a2 2 0 11-2.8-2.8l.1-.1A1.6 1.6 0 002.6 14H2a2 2 0 110-4h.1A1.6 1.6 0 004.6 5a2 2 0 112.8-2.8l.1.1A1.6 1.6 0 0010 2.6V2a2 2 0 014 0v.1a1.6 1.6 0 002.7 1.1l.1-.1A2 2 0 1119.4 6l-.1.1a1.6 1.6 0 00-.3 1.8V8a1.6 1.6 0 001.5 1H22a2 2 0 010 4h-.1a1.6 1.6 0 00-1.5 1z"/></svg></div>
         <h3>Preventative maintenance</h3>
-        <p>Scheduled teardown, lubrication and electronic diagnostics that catch motor and belt failures before they cost you a floor full of downtime. Quarterly across Queensland.</p>
-        <div class="chips"><span class="chip">Monthly checks</span><span class="chip">Safety audits</span><span class="chip">Compliance reports</span></div>
+        <p>Scheduled diagnostics, lubrication and electronic checks that catch motor and belt failures before they cost you downtime.</p>
+        <div class="chips"><span class="chip">Monthly checks</span><span class="chip">Safety audits</span></div>
       </div>
       <div class="card rv">
         <div class="ic"><svg fill="none" stroke-width="1.6" viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 11-13h-7l1-7z"/></svg></div>
@@ -448,26 +489,26 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       <span class="eyebrow-line kicker">Get a quote</span>
       <h2 style="font-size:clamp(30px,4vw,48px);margin-top:18px">Industrial-grade quote, rapid response.</h2>
       <p style="color:var(--mute);margin-top:18px;font-size:17px;max-width:440px">Tell us what is down and where. Our technicians are servicing Brisbane, Sunshine Coast and the Gold Coast this week.</p>
-      <div class="contact-item">
+      <a class="contact-item" href="tel:0431525118" style="cursor:pointer">
         <div class="ring"><svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg></div>
-        <div><div class="lab">Direct line</div><div class="val">1300 TRAINR</div></div>
-      </div>
-      <div class="contact-item">
+        <div><div class="lab">Direct line</div><div class="val">0431 525 118</div></div>
+      </a>
+      <a class="contact-item" href="mailto:info@trainrtech.com.au" style="cursor:pointer">
         <div class="ring"><svg fill="none" stroke-width="1.7" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
-        <div><div class="lab">Service email</div><div class="val">service@trainr.tech</div></div>
-      </div>
+        <div><div class="lab">Service email</div><div class="val">info@trainrtech.com.au</div></div>
+      </a>
     </div>
-    <form class="form rv" onsubmit="event.preventDefault();this.querySelector('button').textContent='Request received ✓';this.querySelector('button').style.background='var(--blue)'">
-      <div class="head"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block"></span>Service inquiry</div>
-      <div class="row">
-        <div class="field"><label>Full name</label><input type="text" placeholder="Jordan Blake" required/></div>
-        <div class="field"><label>Phone</label><input type="tel" placeholder="0400 000 000" required/></div>
-      </div>
-      <div class="field"><label>Facility name</label><input type="text" placeholder="e.g. Anytime Fitness Maroochydore"/></div>
-      <div class="field"><label>Service type</label><select><option>Urgent repair</option><option>Routine maintenance</option><option>Equipment audit</option><option>Gym relocation</option></select></div>
-      <div class="field"><label>Description of issue</label><textarea rows="4" placeholder="What is down, and how can we help?"></textarea></div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px">Submit request</button>
-    </form>
+    <div class="form rv quote-panel">
+      <div class="head"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block"></span>Request a service</div>
+      <p style="color:var(--mute);font-size:16px;line-height:1.6;margin:0 0 8px">Send us the details of the machine and the fault. Our full request form takes two minutes and routes straight to a technician.</p>
+      <ul class="quote-list">
+        <li>Tell us the equipment, fault and urgency</li>
+        <li>Attach a photo of the problem area</li>
+        <li>Same-week response across South East QLD</li>
+      </ul>
+      <a href="request.html" class="btn btn-primary" style="width:100%;justify-content:center;padding:15px;margin-top:4px">Submit a request →</a>
+      <a href="tel:0431525118" class="btn btn-ghost" style="width:100%;justify-content:center;padding:14px;margin-top:10px">Or call 0431 525 118</a>
+    </div>
   </div>
 </section>
 
@@ -515,7 +556,7 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
     <h2>Keep your floor running.</h2>
     <p>Book a teardown service and get a same-week response from a technician who knows the machine inside out.</p>
     <div class="cta">
-      <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Service →</button>
+      <a class="btn btn-primary" href="request.html">Request a Service →</a>
       <button class="btn btn-ghost" onclick="document.getElementById('teardown').scrollIntoView({behavior:'smooth'})">Replay the teardown</button>
     </div>
   </div>
@@ -528,8 +569,9 @@ footer{border-top:1px solid var(--line);background:var(--carbon);padding:64px 0 
       <div>
         <a href="#" class="logo"><span class="dot"></span>TRAINR<span style="color:var(--mute-2)">TECH</span></a>
         <p class="blurb">Industrial-grade gym equipment servicing and preventative maintenance. We know your machines down to the last bolt.</p>
+        <p class="blurb" style="margin-top:14px"><a href="tel:0431525118" style="color:var(--silver)">0431 525 118</a><br/><a href="mailto:info@trainrtech.com.au" style="color:var(--silver)">info@trainrtech.com.au</a></p>
       </div>
-      <div><h4>Company</h4><a href="blog/index.html">Blog</a><a href="#">About us</a><a href="#">Our team</a></div>
+      <div><h4>Company</h4><a href="request.html">Request a service</a><a href="blog/index.html">Blog</a><a href="#">About us</a></div>
       <div><h4>Services</h4><a href="#services">Maintenance plans</a><a href="#services">Repairs</a><a href="#services">Installation</a></div>
       <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of service</a></div>
     </div>
