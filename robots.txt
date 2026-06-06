@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trainr-tech-site.vercel.app/sitemap.xml
+Sitemap: https://trainrtech.com.au/sitemap.xml
