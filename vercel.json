@@ -1,5 +1,8 @@
 {
   "cleanUrls": false,
+  "rewrites": [
+    { "source": "/", "destination": "https://trainr-home.vercel.app/" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
