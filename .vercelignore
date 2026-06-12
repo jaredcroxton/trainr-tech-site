@@ -1,2 +1,5 @@
 assets/_orig/
 .git
+# The home page is served by the CMS publish (vercel.json rewrite / -> trainr-home).
+# Vercel serves static files BEFORE rewrites, so index.html must not ship in this deploy.
+index.html
